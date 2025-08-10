@@ -122,7 +122,7 @@ public class PostController {
     @PostMapping("/{id}/delete")
     public String deletePost(@PathVariable Long id) {
         postService.deletePostById(id);
-
+        imageService.deleteImage(id.toString());
         return "redirect:/posts";
     }
 
