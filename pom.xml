@@ -68,12 +68,15 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>spring-web-demo</finalName>
+    <finalName>spring-web-blog</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
+          <configuration>
+            <parameters>true</parameters>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
