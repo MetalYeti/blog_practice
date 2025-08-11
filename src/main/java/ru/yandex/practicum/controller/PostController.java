@@ -54,11 +54,7 @@ public class PostController {
                           @RequestPart("image") MultipartFile file,
                           @RequestParam("tags") String tags,
                           @RequestParam("text") String text) throws IOException, URISyntaxException {
-        String newTags = new String(tags.getBytes(), "UTF-8");
-        String newText = new String(text.getBytes(), "UTF-8");
-        String newTitle = new String(title.getBytes(), "UTF-8");
-
-        Post post = new Post(newTitle,newText,newTags);
+        Post post = new Post(title,text,tags);
         Post savedPost = postService.save(post);
         imageService.saveImage(String.valueOf(savedPost.getId()), file.getBytes());
 
@@ -71,15 +67,11 @@ public class PostController {
                              @RequestParam("text") String text,
                              @RequestParam("title") String title,
                              @RequestPart("image") MultipartFile file) throws IOException, URISyntaxException {
-        String newTags = new String(tags.getBytes(), "UTF-8");
-        String newText = new String(text.getBytes(), "UTF-8");
-        String newTitle = new String(title.getBytes(), "UTF-8");
-
         Optional<Post> optional = postService.getPostById(id);
         Post post = optional.orElseThrow();
-        post.setCaption(newTitle);
-        post.setTags(newTags);
-        post.setContent(newText);
+        post.setCaption(title);
+        post.setTags(tags);
+        post.setContent(text);
         Post savedPost = postService.save(post);
         imageService.saveImage(String.valueOf(savedPost.getId()), file.getBytes());
         return "redirect:/posts";
