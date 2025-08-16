@@ -11,12 +11,13 @@
         <button style="float:right;">ДОБАВИТЬ ПОСТ</button>
     </form>
     <table style="width:50%;margin-left:auto;margin-right:auto;">
+        <thead>
         <tr>
             <td>
                 <form>
                     <p>
                         <label for="search">Найти по тегу: </label>
-                        <input id="search" style="width:300px;" name="search" th:value="${search}">
+                        <input id="search" style="width:300px;" name="search" th:value="${search}"/>
                         <button name="action">&#128269;</button>
                     </p>
                     <p>
@@ -37,12 +38,14 @@
                 </form>
             </td>
         </tr>
+        </thead>
+        <tbody>
         <tr th:each="post : ${posts}">
             <td style="border-bottom:thin solid;">
                 <h2 th:text="${post.getCaption()}"></h2>
                 <p>
                     <a th:href="${'posts/'+post.getId()}">
-                        <img height="300" th:src="${'http://localhost:8081/images/'+post.getId()}">
+                        <img height="300" th:src="${'http://localhost:8081/images/'+post.getId()}"/>
                     </a>
                 </p>
                 <p th:text="${post.getTextPreview()}"></p>
@@ -55,5 +58,7 @@
                 </p>
             </td>
         </tr>
+        </tbody>
     </table>
 </body>
+</html>

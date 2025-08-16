@@ -1,15 +1,21 @@
 package ru.yandex.practicum.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.net.URISyntaxException;
 
 @Service
 public class ImageServiceImpl implements ImageService {
-    private final String PROJECT_PATH = "g:/server/file_storage/images";
+
+    private final String PROJECT_PATH;
+
+    public ImageServiceImpl(@Value("${imageFolder.path}") String path) {
+        this.PROJECT_PATH = path;
+    }
+
     @Override
-    public void saveImage(String filename, byte[] rawData) throws URISyntaxException {
+    public boolean saveImage(String filename, byte[] rawData) {
         File destFile = new File(PROJECT_PATH);
         if (!destFile.exists()) {
             destFile.mkdir();
@@ -19,6 +25,7 @@ public class ImageServiceImpl implements ImageService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return true;
     }
 
     @Override

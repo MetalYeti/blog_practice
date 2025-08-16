@@ -51,12 +51,14 @@ public class PostController {
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String addPost(@RequestParam("title") String title,
-                          @RequestPart("image") MultipartFile file,
+                          @RequestPart(value = "image", required = false) MultipartFile file,
                           @RequestParam("tags") String tags,
                           @RequestParam("text") String text) throws IOException, URISyntaxException {
         Post post = new Post(title,text,tags);
         Post savedPost = postService.save(post);
-        imageService.saveImage(String.valueOf(savedPost.getId()), file.getBytes());
+        if (file != null && !file.isEmpty()) {
+            imageService.saveImage(String.valueOf(savedPost.getId()), file.getBytes());
+        }
 
         return "redirect:/posts";
     }
@@ -66,14 +68,16 @@ public class PostController {
                              @RequestParam("tags") String tags,
                              @RequestParam("text") String text,
                              @RequestParam("title") String title,
-                             @RequestPart("image") MultipartFile file) throws IOException, URISyntaxException {
+                             @RequestPart(value = "image", required = false) MultipartFile file) throws IOException, URISyntaxException {
         Optional<Post> optional = postService.getPostById(id);
         Post post = optional.orElseThrow();
         post.setCaption(title);
         post.setTags(tags);
         post.setContent(text);
         Post savedPost = postService.save(post);
-        imageService.saveImage(String.valueOf(savedPost.getId()), file.getBytes());
+        if (file != null && !file.isEmpty()) {
+            imageService.saveImage(String.valueOf(savedPost.getId()), file.getBytes());
+        }
         return "redirect:/posts";
     }
 

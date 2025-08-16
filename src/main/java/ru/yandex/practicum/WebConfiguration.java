@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebMvc
 @EnableJdbcRepositories
+
 @ComponentScan(basePackages = "ru.yandex.practicum")
 @PropertySource("classpath:application.properties")
 public class WebConfiguration implements WebMvcConfigurer {

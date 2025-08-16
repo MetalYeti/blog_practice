@@ -14,7 +14,7 @@ import java.util.List;
 @Table("posts")
 public class Post {
     @Id
-    private long id;
+    private Long id;
     @NonNull
     private String caption;
     @NonNull
