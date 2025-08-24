@@ -1,6 +1,5 @@
-package ru.yandex.practicum.service;
+package ru.yandex.practicum.blog_practice.service;
 
-import java.net.URISyntaxException;
 
 public interface ImageService {
     boolean saveImage(String filename, byte[] rawData);

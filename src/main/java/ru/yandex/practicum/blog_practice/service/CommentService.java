@@ -1,8 +1,8 @@
-package ru.yandex.practicum.service;
+package ru.yandex.practicum.blog_practice.service;
 
 import org.springframework.stereotype.Service;
-import ru.yandex.practicum.entity.Comment;
-import ru.yandex.practicum.repository.CommentRepository;
+import ru.yandex.practicum.blog_practice.entity.Comment;
+import ru.yandex.practicum.blog_practice.repository.CommentRepository;
 
 @Service
 public class CommentService {

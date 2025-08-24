@@ -1,11 +1,11 @@
-package ru.yandex.practicum.service;
+package ru.yandex.practicum.blog_practice.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import ru.yandex.practicum.entity.Post;
-import ru.yandex.practicum.repository.PostRepository;
+import ru.yandex.practicum.blog_practice.entity.Post;
+import ru.yandex.practicum.blog_practice.repository.PostRepository;
 
 import java.util.Optional;
 
@@ -27,7 +27,7 @@ public class PostService {
     }
 
     public Page<Post> getAllPostsContaining(String tags, Pageable pageable) {
-        return postRepository.findByTagsContaining(tags, pageable);
+        return postRepository.findByTagsContainingOrderById(tags, pageable);
     }
 
     public Post save(Post post) {

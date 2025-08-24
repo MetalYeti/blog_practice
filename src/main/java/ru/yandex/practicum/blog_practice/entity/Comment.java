@@ -1,4 +1,4 @@
-package ru.yandex.practicum.entity;
+package ru.yandex.practicum.blog_practice.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -19,6 +19,7 @@ public class Comment {
         this.id = id;
         this.postId = postId;
         this.comment = comment;
+        this.commentNum = commentNum;
     }
 
     public Comment(String text, Long postId) {

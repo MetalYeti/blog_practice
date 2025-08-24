@@ -1,4 +1,4 @@
-package ru.yandex.practicum.controller;
+package ru.yandex.practicum.blog_practice.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,12 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.yandex.practicum.entity.Comment;
-import ru.yandex.practicum.entity.Post;
-import ru.yandex.practicum.model.PageDTO;
-import ru.yandex.practicum.service.CommentService;
-import ru.yandex.practicum.service.ImageService;
-import ru.yandex.practicum.service.PostService;
+import ru.yandex.practicum.blog_practice.entity.Comment;
+import ru.yandex.practicum.blog_practice.entity.Post;
+import ru.yandex.practicum.blog_practice.model.PageDTO;
+import ru.yandex.practicum.blog_practice.service.CommentService;
+import ru.yandex.practicum.blog_practice.service.ImageService;
+import ru.yandex.practicum.blog_practice.service.PostService;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

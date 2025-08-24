@@ -1,4 +1,4 @@
-package ru.yandex.practicum.model;
+package ru.yandex.practicum.blog_practice.model;
 
 import org.springframework.data.domain.Page;
 

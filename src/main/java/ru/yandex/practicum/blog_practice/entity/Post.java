@@ -1,4 +1,4 @@
-package ru.yandex.practicum.entity;
+package ru.yandex.practicum.blog_practice.entity;
 
 import lombok.Data;
 import lombok.NonNull;

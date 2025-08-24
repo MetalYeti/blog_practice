@@ -1,7 +1,5 @@
-package ru.yandex.practicum.configuration;
+package ru.yandex.practicum.blog_practice.configuration;
 
-import org.postgresql.Driver;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +16,9 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.transaction.TransactionManager;
 
 import javax.sql.DataSource;
+import java.sql.Driver;
 
-@Configuration
-@Profile("default")
+
 public class DataSourceConfiguration extends AbstractJdbcConfiguration {
 
     @Bean
