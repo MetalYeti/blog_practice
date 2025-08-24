@@ -1,9 +1,8 @@
-package ru.yandex.practicum.configuration;
+package ru.yandex.practicum.blog_practice.configuration;
 
-import org.postgresql.Driver;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -20,7 +19,7 @@ import org.springframework.transaction.TransactionManager;
 import javax.sql.DataSource;
 
 
-@Configuration
+@TestConfiguration
 @Profile("test")
 public class DataSourceTestConfiguration extends AbstractJdbcConfiguration {
 
@@ -31,7 +30,6 @@ public class DataSourceTestConfiguration extends AbstractJdbcConfiguration {
             @Value("${spring.datasource.password}") String password
     ) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(Driver.class.getName());
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);

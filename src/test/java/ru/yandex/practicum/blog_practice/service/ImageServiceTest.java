@@ -1,14 +1,13 @@
-package ru.yandex.practicum.service;
+package ru.yandex.practicum.blog_practice.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.util.ResourceUtils;
-import ru.yandex.practicum.configuration.DataSourceTestConfiguration;
-import ru.yandex.practicum.configuration.ImageServiceConfiguration;
-import ru.yandex.practicum.configuration.WebTestConfiguration;
+import ru.yandex.practicum.blog_practice.configuration.ImageServiceConfiguration;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +18,7 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringJUnitConfig(classes = {ImageServiceConfiguration.class})
-@TestPropertySource(locations = "classpath:test-application.properties")
+@ActiveProfiles("test")
 public class ImageServiceTest {
 
     @Autowired

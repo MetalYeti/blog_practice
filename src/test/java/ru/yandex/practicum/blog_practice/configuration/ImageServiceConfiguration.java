@@ -1,10 +1,10 @@
-package ru.yandex.practicum.configuration;
+package ru.yandex.practicum.blog_practice.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.yandex.practicum.service.ImageService;
-import ru.yandex.practicum.service.ImageServiceImpl;
+import ru.yandex.practicum.blog_practice.service.ImageService;
+import ru.yandex.practicum.blog_practice.service.ImageServiceImpl;
 
 @Configuration
 public class ImageServiceConfiguration {
